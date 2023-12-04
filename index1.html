@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Properties Calculator</title>
+    <script>
+        function calculateProperties() {
+            const length = parseFloat(document.getElementById('length').value);
+            const width = parseFloat(document.getElementById('width').value);
+            const thickness = parseFloat(document.getElementById('thickness').value);
+            
+            if (isNaN(length) || isNaN(width) || isNaN(thickness)) {
+                alert('All inputs must be numbers.');
+                return;
+            }
+            
+            const area = length * width;
+            const volume = area * thickness;
+            
+            document.getElementById('area').value = area;
+            document.getElementById('volume').value = volume;
+        }
+    </script>
+</head>
+<body>
+    <h1>Material Properties Calculator</h1>
+    <form>
+        <label for="length">Length of Material (m):</label>
+        <input type="text" id="length" name="length">
+        <br>
+        <label for="width">Width of Material (m):</label>
+        <input type="text" id="width" name="width">
+        <br>
+        <label for="thickness">Thickness of Material (m):</label>
+        <input type="text" id="thickness" name="thickness">
+        <br>
+        <button type="button" onclick="calculateProperties()">Calculate Properties</button>
+    </form>
+    <h2>Results:</h2>
+    <label for="area">Area of Material (m²):</label>
+    <input type="text" id="area" name="area" readonly>
+    <br>
+    <label for="volume">Volume of Material (m³):</label>
+    <input type="text" id="volume" name="volume" readonly>
+</body>
+</html>
